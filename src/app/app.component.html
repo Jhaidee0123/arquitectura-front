@@ -1,0 +1,53 @@
+<div class="container">
+  <form [formGroup]="userForm" (ngSubmit)="createUser(userForm)">
+    <h1>Crear Usuario</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <input type="text" formControlName="firstname" placeholder="Nombre">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <input type="text" formControlName="lastname" placeholder="Apellido">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <button type="button" class="btn btn-primary" type="submit">Crear</button>
+      </div>
+    </div>
+  </form>
+
+  <form [formGroup]="deleteUserForm" (ngSubmit)="deleteUser(deleteUserForm)">
+    <h1>Eliminar Usuario</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <input type="number" formControlName="iduser" placeholder="Id Usuario">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <button type="button" class="btn btn-danger" type="submit">Eliminar</button>
+      </div>
+    </div>
+  </form>
+
+  <h1>Lista de Usuarios</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of users">
+        <td scope="col">{{ item.id }}</td>
+        <td scope="col">{{ item.firstName }}</td>
+        <td scope="col">{{ item.lastName }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<router-outlet></router-outlet>
